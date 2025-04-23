@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rakesh Kumar - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta
+      name="description"
+      content="Portfolio of Rakesh Kumar, IT Officer & Full-Stack Developer."
+    />
+    <meta
+      name="keywords"
+      content="Rakesh Kumar, Full-Stack Developer, Java, Python, React, Node.js, DevOps"
+    />
+    <meta property="og:image" content="link-to-your-image.jpg" />
+
+    <style>
+      body {
+        background: #1f2525
+          url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgZmlsbD0ibm9uZSI+PHBhdGggc3Ryb2tlPSIjMDBiN2ViIiBzdHJva2Utd2lkdGg9IjEiIGQ9Ik0wIDBoNTB2NTBIMHoiLz48cGF0aCBzdHJva2U9IiNiYjAwZmYiIHN0cm9rZS13aWR0aD0iMSIgZD0iTTAgMjVoNTBNMjUgMHY1ME0wIDM1aDUwTTM1IDB2NTBNMCA0NWg1ME00NSAwdjUwIi8+PC9zdmc+')
+          repeat;
+        color: #e0e6e6;
+        font-family: 'Roboto Mono', monospace;
+        overflow-x: hidden;
+        position: relative;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(31, 37, 37, 0.9);
+        z-index: -1;
+      }
+      .tech-glow {
+        border: 2px solid #00b7eb;
+        box-shadow: 0 0 15px rgba(0, 183, 235, 0.5),
+          0 0 25px rgba(187, 0, 255, 0.3);
+        transition: box-shadow 0.3s ease;
+      }
+      .tech-glow:hover {
+        box-shadow: 0 0 25px rgba(0, 183, 235, 0.7),
+          0 0 35px rgba(187, 0, 255, 0.5);
+      }
+      nav {
+        background: rgba(31, 37, 37, 0.95);
+        backdrop-filter: blur(10px);
+      }
+      .nav-link {
+        position: relative;
+        color: #e0e6e6;
+        transition: color 0.3s ease;
+        font-size: 1rem;
+      }
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -4px;
+        left: 0;
+        background: #00b7eb;
+        transition: width 0.3s ease;
+      }
+      .nav-link:hover {
+        color: #00b7eb;
+      }
+      .nav-link:hover::after {
+        width: 100%;
+      }
+      .section-title {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 2rem;
+        font-size: 2rem;
+        font-weight: 700;
+        color: #00b7eb;
+        border-bottom: 3px solid #bb00ff;
+        padding-bottom: 0.5rem;
+      }
+      .btn-primary {
+        background: linear-gradient(45deg, #00b7eb, #bb00ff);
+        color: #1f2525;
+        padding: 0.75rem 2rem;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .btn-primary:hover {
+        transform: scale(1.05);
+        box-shadow: 0 5px 15px rgba(0, 183, 235, 0.5);
+      }
+      .tech-card {
+        background: rgba(31, 37, 37, 0.7);
+        border: 1px solid #00b7eb;
+        border-radius: 12px;
+        padding: 1.5rem;
+        transition: transform 0.3s ease;
+      }
+      .tech-card:hover {
+        transform: translateY(-5px);
+      }
+      .timeline::before {
+        content: '';
+        position: absolute;
+        left: 1rem;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: #00b7eb;
+      }
+      .timeline-item {
+        position: relative;
+        padding-left: 3rem;
+        margin-bottom: 2rem;
+      }
+      .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: 0.75rem;
+        top: 0.5rem;
+        width: 14px;
+        height: 14px;
+        background: #bb00ff;
+        border: 3px solid #00b7eb;
+        border-radius: 50%;
+        transition: transform 0.3s ease;
+      }
+      .timeline-item:hover::before {
+        transform: scale(1.2);
+      }
+      .profile-photo {
+        border: 3px solid #00b7eb;
+        box-shadow: 0 0 15px rgba(0, 183, 235, 0.5);
+        transition: transform 0.3s ease;
+      }
+      .profile-photo:hover {
+        transform: scale(1.05);
+      }
+      @media (max-width: 640px) {
+        .nav-link {
+          font-size: 0.85rem;
+        }
+        .section-title {
+          font-size: 1.5rem;
+        }
+        .btn-primary {
+          padding: 0.5rem 1.5rem;
+          font-size: 0.9rem;
+        }
+        .profile-photo {
+          width: 150px !important;
+          height: 150px !important;
+        }
+        .timeline::before {
+          left: 0.5rem;
+        }
+        .timeline-item {
+          padding-left: 2rem;
+        }
+        .timeline-item::before {
+          left: 0.25rem;
+        }
+      }
+      @media (min-width: 641px) and (max-width: 1024px) {
+        .nav-link {
+          font-size: 0.95rem;
+        }
+        .section-title {
+          font-size: 1.8rem;
+        }
+        .profile-photo {
+          width: 200px !important;
+          height: 200px !important;
+        }
+      }
+      .flexme {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+      /* #icon:hover {
+        color: rgb(39, 128, 128);
+      } */
+    </style>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="antialiased">
+    <nav class="fixed top-0 left-0 right-0 shadow-lg z-50">
+      <div class="flexme px-4 py-4">
+        <div class="text-xl font-bold text-white">
+          Console.log(<span id="icon" style="color: #00b7eb">'Developer'</span>)
+        </div>
+        <div class="flex flex-wrap space-x-4 sm:space-x-6">
+          <a href="#home" class="nav-link">Home</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#experience" class="nav-link">Experience</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#education" class="nav-link">Education</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </div>
+      </div>
+    </nav>
+    <section
+      id="home"
+      class="min-h-screen flex items-center justify-center pt-16"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center"
+      >
+        <div class="md:w-1/2 text-center md:text-left">
+          <h1
+            class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-[#00b7eb]"
+          >
+            Hi, I'm Rakesh Kumar
+          </h1>
+          <p class="text-lg sm:text-xl mb-6">
+            IT Officer at Bank of Baroda | Full-Stack Developer
+          </p>
+          <a href="#contact" class="btn-primary inline-block tech-glow"
+            >Get in Touch</a
+          >
+        </div>
+        <div class="md:w-1/2 mt-8 md:mt-0">
+          <img
+            src="images/image3.jpg"
+            alt="Rakesh Kumar in a mall"
+            class="profile-photo rounded-full w-72 h-72 mx-auto object-cover"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="py-20">
+      <div class="max-w-7xl mx-auto px-4">
+        <h2 class="section-title">About Me</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="flex flex-col justify-center">
+            <p class="mb-4">
+              I’m a results-driven IT Officer at Bank of Baroda and a Full-Stack
+              Developer with over 2 years of experience in building scalable web
+              applications and implementing DevOps practices. I’m proficient in
+              Java, Python, C++, C, PHP, React, Node.js, and DevOps tools like
+              Docker, Kubernetes, and AWS.
+            </p>
+            <p>
+              I specialize in developing robust backend systems, optimizing
+              CI/CD pipelines, and delivering high-quality software solutions.
+              I’m passionate about solving complex problems and continuously
+              improving development workflows.
+            </p>
+          </div>
+          <div class="flex flex-col items-center">
+            <img
+              src="images/image2.jpg"
+              alt="Rakesh Kumar outdoors"
+              class="profile-photo rounded-full w-48 h-48 mb-6 object-cover"
+            />
+            <h3 class="text-xl font-semibold mb-4 text-[#00b7eb]">
+              Technical Skills
+            </h3>
+            <ul class="list-disc list-inside space-y-2">
+              <li><strong>Languages:</strong> Java, Python, C++, C, PHP</li>
+              <li>
+                <strong>Frontend:</strong> React, HTML5, CSS3, JavaScript,
+                Bootstrap
+              </li>
+              <li>
+                <strong>Backend:</strong> Node.js, Express.js, RESTful APIs,
+                Spring Boot
+              </li>
+              <li><strong>Databases:</strong> MongoDB, MySQL, SQL</li>
+              <li>
+                <strong>DevOps:</strong> Docker, Kubernetes, Jenkins, AWS, Git
+              </li>
+              <li><strong>Testing:</strong> Postman, Selenium, Jest, Mocha</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="py-20">
+      <div class="max-w-7xl mx-auto px-4">
+        <h2 class="section-title">Experience</h2>
+        <div class="relative timeline">
+          <div class="timeline-item tech-card tech-glow">
+            <h3 class="text-xl font-semibold text-[#00b7eb]">IT Officer</h3>
+            <p class="text-gray-400">Bank of Baroda | Apr 2025 - Present</p>
+            <ul class="list-disc list-inside mt-2">
+              <li>
+                Contributing to IT infrastructure management and digital
+                transformation initiatives.
+              </li>
+              <li>
+                Supporting the implementation of secure and efficient banking
+                systems.
+              </li>
+              <li>
+                Collaborating with teams to enhance operational workflows using
+                technology.
+              </li>
+            </ul>
+          </div>
+          <div class="timeline-item tech-card tech-glow">
+            <h3 class="text-xl font-semibold text-[#00b7eb]">
+              Technical Teacher (Freelance)
+            </h3>
+            <p class="text-gray-400">Pramanicus Academy | Apr 2023 - Present</p>
+            <ul class="list-disc list-inside mt-2">
+              <li>
+                Mentored students in Java, Python, MERN Stack, and API
+                development.
+              </li>
+              <li>
+                Designed a curriculum on full-stack development and RESTful
+                APIs.
+              </li>
+              <li>
+                Led projects like an Online Learning Platform and an E-Commerce
+                Website.
+              </li>
+            </ul>
+          </div>
+          <div class="timeline-item tech-card tech-glow">
+            <h3 class="text-xl font-semibold text-[#00b7eb]">
+              Software Engineer Intern
+            </h3>
+            <p class="text-gray-400">
+              Bharathi Soft Technologies Pvt Ltd | Mar 2022 - Feb 2023
+            </p>
+            <ul class="list-disc list-inside mt-2">
+              <li>
+                Developed a Blockchain-based Decentralized Voting System using
+                Ethereum, Solidity, Web3.js, and React.js.
+              </li>
+              <li>
+                Built responsive web interfaces using React and Redux, improving
+                user engagement by 25%.
+              </li>
+              <li>
+                Optimized application performance, reducing load times by 30%.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="py-20">
+      <div class="max-w-7xl mx-auto px-4">
+        <h2 class="section-title">Projects</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="tech-card tech-glow">
+            <h3 class="text-xl font-semibold mb-2 text-[#00b7eb]">
+              E-Commerce Application
+            </h3>
+            <p class="mb-4">
+              Built a full-stack e-commerce platform using React, Node.js,
+              MongoDB, Redux, Stripe, and JWT. Designed a responsive UI with
+              Styled Components.
+            </p>
+            <a
+              href="https://github.com/merakesh1/GeneralShop_Applications.git"
+              target="_blank"
+              class="btn-primary tech-glow inline-block text-sm"
+            >
+              View on GitHub
+            </a>
+          </div>
+          <div class="tech-card tech-glow">
+            <h3 class="text-xl font-semibold mb-2 text-[#00b7eb]">
+              Banking Application (Java)
+            </h3>
+            <p class="mb-4">
+              Developed a console-based banking app with user authentication,
+              role-based access, and modular code for scalability.
+            </p>
+            <a
+              href="https://github.com/merakesh1/banking-app.git"
+              target="_blank"
+              class="btn-primary tech-glow inline-block text-sm"
+            >
+              View on GitHub
+            </a>
+          </div>
+          <div class="tech-card tech-glow">
+            <h3 class="text-xl font-semibold mb-2 text-[#00b7eb]">
+              DevOps CI/CD Pipeline
+            </h3>
+            <p class="mb-4">
+              Implemented a CI/CD pipeline using Jenkins, Docker, and
+              Kubernetes, reducing deployment time by 40%. Managed AWS EC2
+              instances.
+            </p>
+            <a
+              href="https://github.com/merakesh1/cicd-pipeline.git"
+              target="_blank"
+              class="btn-primary tech-glow inline-block text-sm"
+            >
+              View on GitHub
+            </a>
+          </div>
+          <div class="tech-card tech-glow">
+            <h3 class="text-xl font-semibold mb-2 text-[#00b7eb]">
+              Airline Delay Prediction
+            </h3>
+            <p class="mb-4">
+              Created a machine learning model using PySpark to predict flight
+              delays, improving accuracy by 20%.
+            </p>
+            <a
+              href="https://github.com/merakesh1/Air-delay-prediction.git"
+              target="_blank"
+              class="btn-primary tech-glow inline-block text-sm"
+            >
+              View on GitHub
+            </a>
+          </div>
+          <div class="tech-card tech-glow">
+            <h3 class="text-xl font-semibold mb-2 text-[#00b7eb]">
+              Crud Application for Employee Management
+            </h3>
+            <p class="mb-4">
+              Developed a CRUD application for employee management using React,
+              Node.js, MongoDB, and Material-UI. Implemented user authentication
+              and role-based access control.
+            </p>
+            <a
+              href="https://github.com/merakesh1/Crud-applications.git"
+              target="_blank"
+              class="btn-primary tech-glow inline-block text-sm"
+            >
+              View on GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="py-20">
+      <div class="max-w-7xl mx-auto px-4">
+        <h2 class="section-title">Education</h2>
+        <div class="space-y-6">
+          <div class="tech-card tech-glow">
+            <h3 class="text-xl font-semibold text-[#00b7eb]">
+              Bachelor of Computer Science and Engineering
+            </h3>
+            <p class="text-gray-400">
+              Chennai Institute of Technology | 2019 - 2023 | CGPA: 8.41
+            </p>
+          </div>
+          <div class="tech-card tech-glow">
+            <h3 class="text-xl font-semibold text-[#00b7eb]">
+              Intermediate (12th)
+            </h3>
+            <p class="text-gray-400">
+              Narayana Junior College, Telangana | 2018 - 2019 | CGPA: 9.60
+            </p>
+          </div>
+          <div class="tech-card tech-glow">
+            <h3 class="text-xl font-semibold text-[#00b7eb]">
+              Secondary School (10th)
+            </h3>
+            <p class="text-gray-400">
+              Sri Vidhya Secondary School, Telangana | 2018 | CGPA: 9.60
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-20">
+      <div class="max-w-7xl mx-auto px-4 text-center">
+        <h2 class="section-title">Contact Me</h2>
+        <p class="mb-6">
+          Feel free to reach out for opportunities or collaborations!
+        </p>
+        <div
+          class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4"
+        >
+          <a
+            href="mailto:rakeshkumar.ragula1@gmail.com"
+            class="btn-primary tech-glow"
+            >Email Me</a
+          >
+          <a
+            href="./Resume new.pdf"
+            target="_blank"
+            class="btn-primary tech-glow"
+            download="Resume.pdf"
+            >Resumine</a
+          >
+          <a
+            href="https://www.linkedin.com/in/r-rakeshkumar-0b2370291"
+            target="_blank"
+            class="btn-primary tech-glow"
+            >LinkedIn</a
+          >
+          <a
+            href="https://github.com/merakesh1"
+            target="_blank"
+            class="btn-primary tech-glow flex items-center justify-center space-x-2"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="#1f2525"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.332-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+              />
+            </svg>
+            <span>GitHub</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="py-6 bg-[#1f2525] text-center">
+      <p>© 2025 Rakesh Kumar. All rights reserved.</p>
+    </footer>
+
+    <script>
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth',
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
